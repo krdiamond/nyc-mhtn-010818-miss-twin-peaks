@@ -1,11 +1,20 @@
 import React from 'react'
 
-export default function ContestantCard(props){
-  return (<div className="card">
-      <h2>Queen {props.contestant.name}</h2>
-      <p>Votes: {props.contestant.votes}</p>
-      <img src={props.contestant.image}/>
+export default function ContestantCard({increaseVote, contestant}){
+
+  const handleVote = () => {
+    increaseVote(contestant.id)
+  }
+
+  return (
+    <div className="card">
+      <h2>Queen {contestant.name}</h2>
+      <p>Votes: {contestant.votes}</p>
+      <img src={contestant.image}/>
       <br/>
-      <button onClick={() => props.increaseVote(props.contestant.id)}>Vote</button>
-    </div>)
+      <button onClick={handleVote}>
+        Vote
+      </button>
+    </div>
+  )
 }

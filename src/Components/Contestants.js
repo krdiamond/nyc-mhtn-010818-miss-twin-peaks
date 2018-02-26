@@ -1,16 +1,20 @@
 import React from 'react'
 import ContestantCard from './ContestantCard'
 
-export default function Contestants(props) {
+export default function Contestants({contestants, increaseVote}) {
+
   const mapContestants = () => {
-    return Object.values(props.contestants).map(contestant => {
+    let contestantArray = Object.values(contestants)
+    let contestantCards = contestantArray.map(contestant => {
       return (< ContestantCard contestant = {
         contestant
       }
       increaseVote = {
-        props.increaseVote
-      } />)
+        increaseVote
+      } />
+      )
     })
+    return contestantCards
   }
 
   return (
