@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 100px;
+}
+
+.App-header {
+  background-color: darkred;
+  height: 200px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.card {
+  background-color: #222;
+
+  height: 320px;
+  width: 200px;
+  padding: 20px;
+  color: white;
+  margin: auto;
+}
+
+button {
+  background-color: darkred;
+  color: white;
+  font-family: 'Righteous', cursive;
+}
+
+.container {
+  display: flex;
+}
+
+.small-img {
+  height: 40px;
+}
+
+.inline {
+  display: inline
+}
+
+
+h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
+}
+
+h2 {
+  font-family: 'Jim Nightshade', cursive;
+}
+
+body {
+  font-family: 'Averia Serif Libre', cursive;
+  background-image: url("https://images.homedepot-static.com/productImages/176605e1-2c22-4951-9e12-f721754c3088/svn/stencil-ease-stencils-sps2142-4-sh-64_1000.jpg");
+}
+
+img, img.scale-with-grid { outline: 0; max-width: 100%; height: auto; }
