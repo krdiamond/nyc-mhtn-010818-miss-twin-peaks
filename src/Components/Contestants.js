@@ -1,17 +1,21 @@
 import React from 'react'
 import ContestantCard from './ContestantCard'
 
-export default function Contestants({contestants, increaseVote}) {
+export default function Contestants({ contestants, increaseVote, decreaseVote }) {
 
   const mapContestants = () => {
     let contestantArray = Object.values(contestants)
     let contestantCards = contestantArray.map(contestant => {
-      return (< ContestantCard contestant = {
+      return (< ContestantCard contestant={
         contestant
       }
-      increaseVote = {
-        increaseVote
-      } />
+        increaseVote={
+          increaseVote
+        }
+        decreaseVote={
+          decreaseVote
+        }
+      />
       )
     })
     return contestantCards

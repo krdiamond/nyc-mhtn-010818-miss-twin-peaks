@@ -37,15 +37,30 @@ export default class MainContainer extends React.Component {
     })
   }
 
+  decreaseVote = (contestantId) => {
+    this.setState({
+      contestants: {
+        ...this.state.contestants,
+        [contestantId]: {
+          ...this.state.contestants[contestantId],
+          votes: this.state.contestants[contestantId]["votes"] - 1
+        }
+      }
+    })
+  }
+
+
+
   render() {
     return (
       <div>
         <Contestants
           contestants={this.state.contestants}
           increaseVote={this.increaseVote}
+          decreaseVote={this.decreaseVote}
         />
-        <hr/>
-        <img src="https://pre00.deviantart.net/a5c1/th/pre/i/2009/288/5/d/miss_twin_peaks_poster_by_lyonlamb.png"/>
+        <hr />
+        <img src="https://pre00.deviantart.net/a5c1/th/pre/i/2009/288/5/d/miss_twin_peaks_poster_by_lyonlamb.png" />
       </div>
     )
   }
