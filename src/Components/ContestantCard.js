@@ -19,7 +19,6 @@ export default function ContestantCard({ increaseVote, decreaseVote, contestant 
     }
   }
 
-
   return (
     <div className="card">
       <h2>Queen {contestant.name}</h2>
