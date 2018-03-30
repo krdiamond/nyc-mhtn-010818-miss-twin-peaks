@@ -1,28 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default function ContestantCard({ increaseVote, decreaseVote, contestant }) {
+function ContestantCard(props) {
 
   const handleIncreaseVote = () => {
-    increaseVote(contestant.id)
+    props.increaseVote(props.contestant.id)
   }
   const handleDecreaseVote = () => {
-    decreaseVote(contestant.id)
+    props.decreaseVote(props.contestant.id)
   }
 
   const swapImage = () => {
-    if (contestant.votes > 4) {
+    if (props.contestant.votes > 4) {
       return "https://i.pinimg.com/564x/9f/bf/85/9fbf8558c0e8cc26309186f5e01d231f--in-the-basement-twin-peaks.jpg"
-    } else if (contestant.votes < -4) {
+    } else if (props.contestant.votes < -4) {
       return "https://78.media.tumblr.com/c881b915fc70fa49d99c31f816da684c/tumblr_osbgxuKD2t1voc1nyo1_500.jpg"
     } else {
-      return contestant.image
+      return props.contestant.image
     }
   }
 
+  console.log('props',props)
+
   return (
     <div className="card">
-      <h2>Queen {contestant.name}</h2>
-      <p>Votes: {contestant.votes}</p>
+      <h2>Queen {props.contestant.name}</h2>
+      <p>Votes: {props.contestant.votes}</p>
       <img src={swapImage()} />
       <br />
       <button onClick={handleIncreaseVote}>
@@ -35,3 +38,18 @@ export default function ContestantCard({ increaseVote, decreaseVote, contestant 
     </div>
   )
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increaseVote: (id) => dispatch({
+      type: "INCREASE_VOTE",
+      contestantId: id
+    }),
+    decreaseVote: (id) => dispatch({
+      type: "DECREASE_VOTE",
+      contestantId: id
+    })
+  }
+}
+
+export default connect( null, mapDispatchToProps )(ContestantCard)

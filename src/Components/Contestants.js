@@ -1,7 +1,8 @@
 import React from 'react'
 import ContestantCard from './ContestantCard'
+import { connect } from 'react-redux'
 
-export default function Contestants({ contestants, increaseVote, decreaseVote }) {
+function Contestants({ contestants, increaseVote, decreaseVote }) {
 
   const mapContestants = () => {
     let contestantArray = Object.values(contestants)
@@ -9,12 +10,6 @@ export default function Contestants({ contestants, increaseVote, decreaseVote })
       return (< ContestantCard contestant={
         contestant
       }
-        increaseVote={
-          increaseVote
-        }
-        decreaseVote={
-          decreaseVote
-        }
       />
       )
     })
@@ -29,3 +24,12 @@ export default function Contestants({ contestants, increaseVote, decreaseVote })
     </div>
   )
 }
+// export default Contestants
+
+const mapStateToProps = (state) => {
+  return {
+    contestants: state.contestants
+  }
+}
+
+export default connect(mapStateToProps)(Contestants)
